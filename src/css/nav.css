@@ -1,0 +1,18 @@
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  padding: 0.25rem 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}

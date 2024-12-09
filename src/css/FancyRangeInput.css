@@ -1,0 +1,14 @@
+.fancy-range-input {
+  display: flex;
+  align-items: center;
+}
+
+.fancy-range-input input[type="range"] {
+  margin-right: 10px;
+  width: 200px;
+}
+
+.fancy-range-input span {
+  font-size: 16px;
+  font-weight: bold;
+}
