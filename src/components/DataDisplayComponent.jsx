@@ -1,18 +1,21 @@
 import React, { useContext } from 'react';
-import { DataContext } from './DataContext';
+import { DataContext } from './DataFetchingComponent';
+import MultipleRangeInputs from './MultipleRangeInputs';
 
-const DataDisplayComponent = () => {
-  const { data } = useContext(DataContext);
+const DataDisplay = () => {
+  const { data, loading } = useContext(DataContext);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <h1>Fetched Data</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
+      <h1>Data:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <MultipleRangeInputs inputs={data} />
     </div>
   );
 };
-export default DataDisplayComponent;
+
+export default DataDisplay;

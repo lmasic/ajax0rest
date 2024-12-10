@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
-import { DataProvider, DataContext } from './components/DataContext';
+import React from 'react';
 import DataDisplayComponent from './components/DataDisplayComponent';
-import DataFetchingComponent from './components/DataFetchingComponent';
-
-const { handleData } = useContext(DataContext);
+import { DataFetchingComponent } from './components/DataFetchingComponent';
 
 const App = () => (
   <div>
@@ -11,10 +8,11 @@ const App = () => (
     <div className="row">
       {`${PRODUCTION ? 'Jde' : 'Nejde'} o produkční webovku.`}
     </div>
-    <DataProvider>
-      <DataFetchingComponent url="http://ajax0.lmsoft.cz/procedure.php?cmd=getTypesList" setData={handleData} />
+
+    <DataFetchingComponent url="http://ajax0.lmsoft.cz/procedure.php?cmd=getTypesList">
       <DataDisplayComponent />
-    </DataProvider>
+    </DataFetchingComponent>
+
   </div>
 );
 
